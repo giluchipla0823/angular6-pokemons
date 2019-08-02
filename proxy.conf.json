@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "http://pokeapi.co",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

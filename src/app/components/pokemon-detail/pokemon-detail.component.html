@@ -1,0 +1,53 @@
+<div *ngIf="pokemon">
+	<div class="row">
+		<div class="col-md-5">
+			
+		</div>
+		<div class="col-md-7">
+			<h1>{{ pokemon.name }}</h1>
+			<hr />
+
+			<ng-container *ngFor="let description of pokemon.descriptions;let i = index;">
+				<p *ngIf="i > 0">{{  description.flavor_text }}</p>
+			</ng-container>
+
+			<table class="table table-bordered">
+			  <thead class="thead-inverse">
+			    <tr>
+			      <th colspan="2">INFORMACIÓN</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			      <th scope="row">Tamaño</th>
+			      <td>
+			      	{{ pokemon. }}
+			      </td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Tipo</th>
+			      <td>
+			      	<app-pokemon-types [types]="pokemon.types"></app-pokemon-types>
+			      </td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Habilidades</th>
+			      <td>
+			      	<ul>
+			      		<li *ngFor="let ability of pokemon.abilities">
+			      			{{ ability.ability.name }}
+			      		</li>
+			      	</ul>
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+
+			<button type="button" 
+					class="btn btn-outline-danger btn-block cursor-pointer"
+					routerLink="/pokemons">
+				Regresar
+			</button>
+		</div>
+	</div>
+</div>

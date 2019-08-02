@@ -1,0 +1,25 @@
+<div class="card">
+	<div class="text-center">
+		<img class="card-img-top img-fluid"
+		     [src]="pokemon.sprites.front_default"
+		     [alt]="pokemon.name" />
+	</div>
+	<div class="card-block">
+	  <h4 class="card-title">{{ pokemon.name }}</h4>
+	  <p class="card-text" 
+	     *ngFor="let description of pokemon.descriptions; let i = index;">
+	      <span *ngIf="i === 0">{{ description.flavor_text }}</span>
+	  </p>
+	  
+	  <p class="card-text">
+	    Tipo: 
+	    <app-pokemon-types [types]="pokemon.types"></app-pokemon-types>
+	  </p>
+
+	  <button type="button"
+	  		  class="btn btn-outline-primary btn-block cursor-pointer"
+	  		  [routerLink]="['/pokemon', pokemon.id]">
+		Ver más
+	  </button>
+	</div>
+</div>
